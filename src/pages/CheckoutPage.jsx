@@ -94,7 +94,7 @@ export const CheckoutPage = () => {
         <div className="lg:col-span-2 space-y-6">
           
           {/* Shipping Address */}
-          <div className="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 space-y-4">
+          <div className="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 flex flex-col gap-4">
             <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
               <Truck className="w-5 h-5 text-indigo-600" />
               <span>1. Shipping Details</span>
@@ -109,6 +109,7 @@ export const CheckoutPage = () => {
                 size="small"
                 fullWidth
                 required
+                InputLabelProps={{ shrink: true }}
               />
 
               <TextField
@@ -119,6 +120,7 @@ export const CheckoutPage = () => {
                 size="small"
                 fullWidth
                 required
+                InputLabelProps={{ shrink: true }}
               />
 
               <TextField
@@ -130,6 +132,7 @@ export const CheckoutPage = () => {
                 size="small"
                 fullWidth
                 required
+                InputLabelProps={{ shrink: true }}
               />
 
               <TextField
@@ -140,6 +143,7 @@ export const CheckoutPage = () => {
                 size="small"
                 fullWidth
                 required
+                InputLabelProps={{ shrink: true }}
               />
 
               <div className="sm:col-span-2">
@@ -151,6 +155,7 @@ export const CheckoutPage = () => {
                   size="small"
                   fullWidth
                   required
+                  InputLabelProps={{ shrink: true }}
                 />
               </div>
 
@@ -162,9 +167,10 @@ export const CheckoutPage = () => {
                 size="small"
                 fullWidth
                 required
+                InputLabelProps={{ shrink: true }}
               />
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4">
                 <TextField
                   label="State"
                   name="state"
@@ -173,6 +179,7 @@ export const CheckoutPage = () => {
                   size="small"
                   fullWidth
                   required
+                  InputLabelProps={{ shrink: true }}
                 />
                 <TextField
                   label="Zip Code"
@@ -182,19 +189,20 @@ export const CheckoutPage = () => {
                   size="small"
                   fullWidth
                   required
+                  InputLabelProps={{ shrink: true }}
                 />
               </div>
             </div>
           </div>
 
           {/* Mock Payment Details */}
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-4">
+          <div className="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col gap-4">
             <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
               <CreditCard className="w-5 h-5 text-indigo-600" />
               <span>2. Payment Information</span>
             </h2>
 
-            <div className="space-y-4">
+            <div className="flex flex-col gap-4">
               <TextField
                 label="Card Number"
                 name="cardNumber"
@@ -203,9 +211,10 @@ export const CheckoutPage = () => {
                 size="small"
                 fullWidth
                 required
+                InputLabelProps={{ shrink: true }}
               />
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <TextField
                   label="Expiry Date"
                   name="cardExp"
@@ -214,6 +223,7 @@ export const CheckoutPage = () => {
                   size="small"
                   fullWidth
                   required
+                  InputLabelProps={{ shrink: true }}
                 />
 
                 <TextField
@@ -224,11 +234,12 @@ export const CheckoutPage = () => {
                   size="small"
                   fullWidth
                   required
+                  InputLabelProps={{ shrink: true }}
                 />
               </div>
             </div>
 
-            <p className="text-[11px] text-slate-400 flex items-center gap-1 mt-2">
+            <p className="text-[11px] text-slate-400 flex items-center gap-1 mt-1">
               <Lock className="w-3.5 h-3.5 text-emerald-500" />
               Mock checkout mode enabled. No real payments processed.
             </p>
