@@ -5,25 +5,59 @@
 [![TanStack Query](https://img.shields.io/badge/TanStack_Query-v5-FF4154?style=for-the-badge&logo=react-query)](https://tanstack.com/query/latest)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.3-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![Vitest](https://img.shields.io/badge/Vitest-v4.1-7A00FF?style=for-the-badge&logo=vitest)](https://vitest.dev/)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-success?style=for-the-badge)](https://clone-project-eight-tan.vercel.app)
 
-**Nexus Store** is a modern, high-performance E-Commerce front-end web application built using **React 19**, **Vite**, and **TanStack Query**. It features responsive layout designs, client-side server-state simulation, cart calculation algorithms, local storage persistence, accessible modal primitives, and automated test coverage.
+**Nexus Store** is a modern, high-performance E-Commerce front-end web application built using **React 19**, **Vite**, **TanStack Query**, and **Tailwind CSS**. It features responsive layouts, server-state management, persistent shopping cart, wishlist functionality, filtering, authentication UI, automated testing, and an optimized user experience.
+
+---
+
+# 🚀 Live Demo
+
+### 🌐 https://clone-project-eight-tan.vercel.app
+
+---
+
+# 📸 Screenshots
+
+> Add screenshots later by creating a `screenshots` folder.
+
+```text
+screenshots/
+├── homepage.png
+├── shop.png
+├── product-details.png
+├── cart.png
+└── wishlist.png
+```
+
+Example:
+
+```md
+![Home Page](./screenshots/homepage.png)
+```
 
 ---
 
 ## 🌟 Key Features
 
-* **📦 Catalog Browsing & Multi-Faceted Filtering:** Real-time search by query string, category, price slider boundaries, minimum customer ratings, and sort order (`featured`, `price-low`, `price-high`, `rating`, `newest`).
-* **🔄 Asynchronous Server State Management (TanStack Query v5):** Implements `useQuery` and `useMutation` hooks over simulated async service calls with custom caching (`staleTime`), loading skeletons, and background refetching.
-* **🛒 Persistent Slide-Over Cart Drawer:** Context-driven shopping cart with automatic price calculation, coupon discount logic (percentage & fixed amount discounts), free shipping threshold calculation ($100+ threshold), and `localStorage` state persistence.
-* **💖 Wishlist Management:** Save and remove favorite products across browser sessions.
-* **📱 Accessible UI Component Suite:** Combines Tailwind CSS v4, Material UI theme primitives (`@mui/material`), Ant Design rate controls (`antd`), and Radix UI dialog primitives (`@radix-ui/react-dialog`) with smooth Framer Motion animations.
-* **🧪 Automated Test Suite:** Unit testing for utilities, context integration tests, and component interaction testing powered by **Vitest** and **React Testing Library**.
+- 📦 Product catalog browsing with advanced filtering and sorting
+- 🔍 Search products by name
+- 🛒 Persistent shopping cart with Local Storage
+- 💖 Wishlist management
+- 💰 Automatic subtotal, discount, shipping & total calculation
+- 🎟️ Coupon code support
+- 📱 Fully responsive design
+- ⚡ Fast loading using Vite
+- 🔄 TanStack Query for server-state management
+- 🎨 Modern UI built with Tailwind CSS
+- ✨ Smooth animations using Framer Motion
+- 🧪 Unit & integration testing using Vitest and React Testing Library
 
 ---
 
-## 🏗️ Application Architecture
+# 🏗️ Application Architecture
 
-```
+```text
                                   +-----------------------+
                                   |     React 19 App      |
                                   +-----------+-----------+
@@ -53,81 +87,162 @@
 
 ---
 
-## 📁 Directory Structure
+# 📁 Project Structure
 
-```
+```text
 clone_project/
-├── .env.example                # Environment variables template
-├── .prettierrc                 # Prettier code formatting standards
-├── vite.config.js              # Vite & Vitest test environment configuration
+├── public/
 ├── src/
-│   ├── components/             # Reusable UI components
-│   │   ├── cart/               # CartDrawer slide-over interface
-│   │   ├── common/             # Radix dialog confirmation modals & common controls
-│   │   ├── layout/             # Navbar, Footer, and Header navigation
-│   │   └── product/            # ProductCard, ProductFilter sidebar, and ProductGrid
-│   ├── context/                # Auth, Cart, Wishlist, and Filter state providers
-│   ├── data/                   # Product, category, and promo mock models
-│   ├── hooks/                  # Custom hooks & TanStack Query hooks (useProductQueries)
-│   ├── layouts/                # MainLayout wrapper
-│   ├── pages/                  # Page routes (HomePage, ShopPage, ProductDetailPage, CartPage...)
-│   ├── services/               # Data access service simulating async API latency
-│   ├── utils/                  # Utility helpers (formatCurrency, storage helpers)
-│   └── __tests__ / test files  # Vitest unit & integration test files
-└── package.json                # Scripts & package dependencies
+│   ├── assets/
+│   ├── components/
+│   │   ├── cart/
+│   │   ├── common/
+│   │   ├── layout/
+│   │   └── product/
+│   ├── context/
+│   ├── data/
+│   ├── hooks/
+│   ├── layouts/
+│   ├── pages/
+│   ├── services/
+│   ├── utils/
+│   ├── App.jsx
+│   └── main.jsx
+├── .env.example
+├── .gitignore
+├── package.json
+├── vite.config.js
+└── README.md
 ```
 
 ---
 
-## 🧰 Tech Stack & Libraries
+# 🧰 Tech Stack
 
 | Category | Technology |
-|---|---|
-| **Core Framework** | React 19, Vite 8 |
-| **Server State & Caching** | TanStack Query (React Query) v5 |
-| **Styling & Icons** | Tailwind CSS v4, Lucide React, Framer Motion |
-| **Component Suites** | Material UI (`@mui/material`), Ant Design (`antd`), Radix UI primitives |
-| **Testing** | Vitest, React Testing Library, `@testing-library/jest-dom`, `jsdom` |
-| **Form & Utilities** | React Hook Form, Zod schema validation, Axios |
+|----------|------------|
+| Frontend | React 19 |
+| Build Tool | Vite |
+| Styling | Tailwind CSS v4 |
+| State Management | React Context API |
+| Server State | TanStack Query v5 |
+| UI Libraries | Material UI, Ant Design, Radix UI |
+| Icons | Lucide React |
+| Animation | Framer Motion |
+| Form Validation | React Hook Form, Zod |
+| HTTP Client | Axios |
+| Testing | Vitest, React Testing Library |
+| Storage | Local Storage |
 
 ---
 
-## ⚡ Getting Started & Commands
+# ⚡ Getting Started
 
-### Prerequisites
-- Node.js `v18.0.0` or higher
-- npm `v9.0.0` or higher
+## Prerequisites
 
-### Installation & Setup
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/clone_project.git
-   cd clone_project
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Start the local development server:**
-   ```bash
-   npm run dev
-   ```
-   Open [http://localhost:5173](http://localhost:5173) in your browser.
-
-4. **Run Automated Tests:**
-   ```bash
-   npm run test:run
-   ```
-
-5. **Build for Production:**
-   ```bash
-   npm run build
-   ```
+- Node.js v18+
+- npm v9+
 
 ---
 
-## 📄 License
-This project is open source and available under the [MIT License](LICENSE).
+## Clone Repository
+
+```bash
+git clone https://github.com/padmanaban701/Clone-Project.git
+```
+
+Go to the project folder:
+
+```bash
+cd Clone-Project
+```
+
+---
+
+## Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+## Run Development Server
+
+```bash
+npm run dev
+```
+
+Open:
+
+```
+http://localhost:5173
+```
+
+---
+
+## Run Tests
+
+```bash
+npm run test
+```
+
+or
+
+```bash
+npm run test:run
+```
+
+---
+
+## Build for Production
+
+```bash
+npm run build
+```
+
+---
+
+# 🌐 Deployment
+
+The application is deployed using **Vercel**.
+
+### Live URL
+
+https://clone-project-eight-tan.vercel.app
+
+---
+
+# ✨ Future Enhancements
+
+- Payment Gateway Integration
+- Backend API Integration
+- User Authentication
+- Order History
+- Admin Dashboard
+- Product Reviews
+- Product Search Suggestions
+- Dark Mode
+
+---
+
+# 👨‍💻 Author
+
+**Padmanaban P**
+
+Frontend Developer
+
+- GitHub: https://github.com/padmanaban701
+- LinkedIn: https://www.linkedin.com/in/padmanaban-padmanaban-28290b188
+
+---
+
+# 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## ⭐ Support
+
+If you like this project, consider giving it a ⭐ on GitHub!
