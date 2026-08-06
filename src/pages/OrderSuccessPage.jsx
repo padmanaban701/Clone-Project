@@ -1,4 +1,3 @@
-import React from 'react';
 import { useLocation, Link, useParams } from 'react-router-dom';
 import { CheckCircle, PackageCheck, ArrowRight, Printer, Home } from 'lucide-react';
 import { formatCurrency } from '../utils/formatCurrency';

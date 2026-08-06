@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Heart, ShoppingBag, Eye } from 'lucide-react';
 import { Rate } from 'antd';
@@ -15,8 +15,11 @@ export const ProductCard = ({ product }) => {
 
   const isFavorite = isInWishlist(product.id);
 
-  const discountPercent = product.originalPrice
-    ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
+  const currentPrice = typeof product.price === 'object' ? product.price.current : product.price;
+  const originalPrice = typeof product.price === 'object' ? product.price.original : (product.originalPrice || currentPrice);
+
+  const discountPercent = originalPrice > currentPrice
+    ? Math.round(((originalPrice - currentPrice) / originalPrice) * 100)
     : 0;
 
   return (
@@ -116,11 +119,11 @@ export const ProductCard = ({ product }) => {
           {/* Pricing Row */}
           <div className="flex items-baseline gap-2 flex-wrap">
             <span className="text-lg font-black text-slate-900 tracking-tight">
-              {formatCurrency(product.price)}
+              {formatCurrency(currentPrice)}
             </span>
-            {product.originalPrice && (
+            {originalPrice > currentPrice && (
               <span className="text-xs text-slate-400 line-through font-medium">
-                {formatCurrency(product.originalPrice)}
+                {formatCurrency(originalPrice)}
               </span>
             )}
           </div>

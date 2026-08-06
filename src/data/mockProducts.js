@@ -1,371 +1,537 @@
 export const mockProducts = [
+  // 1. MOBILES
+  {
+    id: 'prod-iphone-17',
+    name: 'Apple iPhone 17 Pro (Deep Blue, 256 GB)',
+    slug: 'apple-iphone-17-pro',
+    brand: 'Apple',
+    sku: 'APL-IP17P-256-DB',
+    category: 'mobiles',
+    productType: 'mobile',
+    badge: 'New Launch',
+    rating: 4.8,
+    reviewCount: 4015,
+    stock: 14,
+    images: [
+      'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=1000&q=80'
+    ],
+    videos: [
+      {
+        title: 'iPhone 17 Pro Official Trailer',
+        thumbnail: 'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=600&q=80',
+        url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4'
+      }
+    ],
+    price: { original: 134900, current: 132900, currency: '₹', taxIncluded: true },
+    variants: {
+      colors: [
+        { name: 'Deep Blue', hex: '#1e293b' },
+        { name: 'Natural Titanium', hex: '#64748b' }
+      ],
+      storage: ['128 GB', '256 GB', '512 GB']
+    },
+    variantMatrix: {},
+    offers: [
+      { id: 'off-1', title: 'Bank Offer', description: 'Flat ₹5,000 Instant Discount on HDFC Bank Credit Cards', code: 'HDFC5000', type: 'bank' },
+      { id: 'off-2', title: 'No Cost EMI', description: 'No Cost EMI up to 24 months with HDFC, ICICI Cards', code: 'NOCOST24', type: 'emi' }
+    ],
+    emiOptions: [
+      { bank: 'HDFC Bank', monthly: 2148, months: 6, noCost: true, totalInterest: 0 },
+      { bank: 'ICICI Bank', monthly: 10741, months: 12, noCost: true, totalInterest: 0 }
+    ],
+    highlights: [
+      '6.7-inch Super Retina XDR display with ProMotion 120Hz',
+      'A19 Pro chip with 6-core GPU & 16-core Neural Engine',
+      '48MP Triple-Lens Fusion Camera with 5x Telephoto Zoom'
+    ],
+    description: 'Experience unmatched mobile innovation with the Apple iPhone 17 Pro in aerospace-grade titanium.',
+    specifications: { General: { 'Brand': 'Apple', 'Model': 'iPhone 17 Pro' } },
+    reviews: [
+      { id: 'rev-1', user: 'Vikram R.', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80', rating: 5, date: '2 days ago', verified: true, title: 'Mind-blowing speed and camera!', content: 'Upgraded from iPhone 13 Pro. Camera zoom and battery are unmatched.', likes: 42 }
+    ],
+    frequentlyBoughtTogether: [
+      { id: 'acc-1', name: 'MagSafe Clear Case for iPhone 17 Pro', price: 2999, originalPrice: 3999, image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=300&q=80' }
+    ],
+    featured: true
+  },
+  {
+    id: 'prod-poco-m8',
+    name: 'POCO M8 Power 5G (Sunset Amber, 8GB RAM, 128GB)',
+    slug: 'poco-m8-power-5g',
+    brand: 'POCO',
+    sku: 'POC-M8-128-AMB',
+    category: 'mobiles',
+    productType: 'mobile',
+    badge: 'Freedom Sale',
+    rating: 4.6,
+    reviewCount: 2840,
+    stock: 25,
+    images: [
+      'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1000&q=80'
+    ],
+    videos: [],
+    price: { original: 25999, current: 21999, currency: '₹', taxIncluded: true },
+    variants: {
+      colors: [{ name: 'Sunset Amber', hex: '#f59e0b' }, { name: 'Midnight Black', hex: '#0f172a' }],
+      storage: ['128 GB', '256 GB']
+    },
+    variantMatrix: {},
+    offers: [
+      { id: 'off-poco-1', title: 'Bank Offer', description: '₹1,500 Extra Discount on ICICI Bank Cards', code: 'ICICI1500', type: 'bank' }
+    ],
+    emiOptions: [],
+    highlights: [
+      'Snapdragon 4 Gen 2 5G Processor',
+      '6000mAh Massive Battery with 33W Fast Charger included',
+      '50MP AI Dual Camera with Night Mode'
+    ],
+    description: 'Power-packed 5G performance with a massive 6000mAh battery for 2-day battery life.',
+    specifications: { General: { 'Brand': 'POCO', 'Model': 'M8 Power 5G' } },
+    reviews: [],
+    frequentlyBoughtTogether: [],
+    featured: true
+  },
+  {
+    id: 'prod-samsung-s25',
+    name: 'Samsung Galaxy S25 Ultra 5G (Titanium Gray, 12GB RAM, 256GB)',
+    slug: 'samsung-galaxy-s25-ultra',
+    brand: 'Samsung',
+    sku: 'SAM-S25U-256-GRY',
+    category: 'mobiles',
+    productType: 'mobile',
+    badge: 'Flagship',
+    rating: 4.9,
+    reviewCount: 5120,
+    stock: 10,
+    images: [
+      'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=1000&q=80'
+    ],
+    videos: [],
+    price: { original: 139999, current: 129999, currency: '₹', taxIncluded: true },
+    variants: {
+      colors: [{ name: 'Titanium Gray', hex: '#475569' }, { name: 'Phantom Black', hex: '#0f172a' }],
+      storage: ['256 GB', '512 GB']
+    },
+    variantMatrix: {},
+    offers: [
+      { id: 'off-sam-1', title: 'Exchange Offer', description: 'Up to ₹50,000 Off on Exchange + ₹5,000 Upgrade Bonus', type: 'exchange' }
+    ],
+    emiOptions: [],
+    highlights: [
+      'Built-in S Pen with air gestures & notes integration',
+      '200MP Quad Camera System with 100x Space Zoom',
+      'Snapdragon 8 Gen 4 Galaxy Edition'
+    ],
+    description: 'The ultimate Android camera flagship with Galaxy AI capabilities.',
+    specifications: { General: { 'Brand': 'Samsung', 'Model': 'Galaxy S25 Ultra' } },
+    reviews: [],
+    frequentlyBoughtTogether: [],
+    featured: true
+  },
+
+  // 2. LAPTOPS
+  {
+    id: 'prod-asus-expertbook',
+    name: 'ASUS ExpertBook P1 Core i5 13th Gen Thin & Light Laptop',
+    slug: 'asus-expertbook-p1',
+    brand: 'ASUS',
+    sku: 'ASU-EXP-P1-I5',
+    category: 'laptops',
+    productType: 'laptop',
+    badge: 'Intel Deal',
+    rating: 4.6,
+    reviewCount: 920,
+    stock: 18,
+    images: [
+      'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1000&q=80'
+    ],
+    videos: [],
+    price: { original: 58990, current: 45990, currency: '₹', taxIncluded: true },
+    variants: { storage: ['512GB SSD', '1TB SSD'] },
+    variantMatrix: {},
+    offers: [
+      { id: 'off-asu-1', title: 'Bank Offer', description: '10% Instant Discount on BOB Card & HSBC', type: 'bank' }
+    ],
+    emiOptions: [],
+    highlights: [
+      'Intel Core i5-1335U 13th Gen Processor (10 Cores, up to 4.6 GHz)',
+      '16GB DDR4 RAM & 512GB NVMe PCIe 4.0 SSD',
+      '15.6-inch Full HD Anti-Glare Eye Care Display'
+    ],
+    description: 'Built for enterprise durability and high productivity on the go.',
+    specifications: { General: { 'Processor': 'Intel Core i5', 'RAM': '16GB' } },
+    reviews: [],
+    frequentlyBoughtTogether: [],
+    featured: true
+  },
+  {
+    id: 'prod-macbook-pro',
+    name: 'Apple MacBook Pro M3 (14-inch, 16GB Unified Memory, 512GB SSD)',
+    slug: 'macbook-pro-m3',
+    brand: 'Apple',
+    sku: 'APL-MBP-M3-14',
+    category: 'laptops',
+    productType: 'laptop',
+    badge: 'Best Seller',
+    rating: 4.9,
+    reviewCount: 1890,
+    stock: 12,
+    images: [
+      'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?auto=format&fit=crop&w=1000&q=80'
+    ],
+    videos: [],
+    price: { original: 179900, current: 169900, currency: '₹', taxIncluded: true },
+    variants: { storage: ['512GB SSD', '1TB SSD'] },
+    variantMatrix: {},
+    offers: [
+      { id: 'off-mbp-1', title: 'Bank Offer', description: 'Flat ₹10,000 Instant Cashback on HDFC Credit Cards', code: 'HDFC10K', type: 'bank' }
+    ],
+    emiOptions: [],
+    highlights: [
+      'Apple M3 chip with 8-core CPU and 10-core GPU',
+      '14.2-inch Liquid Retina XDR display (120Hz ProMotion)',
+      'Up to 22 hours battery life'
+    ],
+    description: 'Mind-blowing performance for creative pros with Liquid Retina XDR screen.',
+    specifications: { General: { 'Chip': 'Apple M3', 'RAM': '16GB' } },
+    reviews: [],
+    frequentlyBoughtTogether: [],
+    featured: true
+  },
+
+  // 3. ELECTRONICS & AUDIO
   {
     id: 'prod-1',
     name: 'Aura Studio Wireless Noise-Canceling Headphones',
     slug: 'aura-studio-wireless-headphones',
+    brand: 'Aura Audio',
+    sku: 'AUR-HD-001',
     category: 'electronics',
-    price: 249.99,
-    originalPrice: 299.99,
+    productType: 'audio',
+    badge: 'Bestseller',
     rating: 4.8,
     reviewCount: 142,
-    badge: 'Bestseller',
     stock: 24,
     images: [
-      'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=1000&q=80'
     ],
-    colors: ['Space Gray', 'Matte Black', 'Silver Pearl'],
-    description: 'Immerse yourself in high-fidelity audio with active noise cancellation, custom 40mm drivers, and up to 35 hours of playback on a single charge.',
-    features: [
-      'Active Noise Cancellation (ANC) with Transparency Mode',
-      'Custom tuned 40mm neodymium dynamic drivers',
-      'Up to 35 hours battery life with fast-charging via USB-C',
-      'Ergonomic memory-foam ear cushions'
-    ],
-    specs: {
-      Connectivity: 'Bluetooth 5.3 & 3.5mm Audio',
-      BatteryLife: '35 Hours (ANC ON)',
-      Weight: '250g',
-      Warranty: '2 Years Manufacturer'
+    videos: [],
+    price: { original: 24999, current: 19999, currency: '₹', taxIncluded: true },
+    variants: {
+      colors: [
+        { name: 'Space Gray', hex: '#334155' },
+        { name: 'Matte Black', hex: '#0f172a' }
+      ]
     },
+    variantMatrix: {},
+    offers: [],
+    emiOptions: [],
+    highlights: ['Active Noise Cancellation (ANC)', '40mm neodymium dynamic drivers', '35 Hours Battery Life'],
+    description: 'High-fidelity audio with active noise cancellation.',
+    specifications: { General: { 'Battery': '35 Hours' } },
+    reviews: [],
+    frequentlyBoughtTogether: [],
     featured: true
   },
   {
     id: 'prod-2',
     name: 'Nordic Minimalist Smart Watch Series 7',
     slug: 'nordic-minimalist-smart-watch',
-    category: 'accessories',
-    price: 189.50,
-    originalPrice: 220.00,
+    brand: 'Nordic',
+    sku: 'NRD-W7-01',
+    category: 'electronics',
+    productType: 'smartwatch',
+    badge: 'Trending',
     rating: 4.6,
     reviewCount: 89,
-    badge: 'Trending',
     stock: 18,
     images: [
-      'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=80'
     ],
-    colors: ['Onyx Black', 'Rose Gold', 'Brushed Steel'],
-    description: 'Sleek Scandinavian aesthetic meets advanced biometric tracking. Monitor heart rate, sleep quality, blood oxygen, and workout stats with dynamic AMOLED display.',
-    features: [
-      '1.4-inch Sapphire Crystal AMOLED Display',
-      'IP68 Water Resistance up to 50 meters',
-      'Heart Rate, SpO2, Sleep & Stress Monitoring',
-      '7-day continuous battery performance'
-    ],
-    specs: {
-      Display: '1.4" AMOLED 454x454',
-      WaterResistance: '5 ATM (50m)',
-      Sensors: 'Optical HR, SpO2, Accelerometer',
-      Compatibility: 'iOS 14+ & Android 9.0+'
-    },
-    featured: true
+    videos: [],
+    price: { original: 18950, current: 14999, currency: '₹', taxIncluded: true },
+    variants: { colors: [{ name: 'Onyx Black', hex: '#0f172a' }] },
+    variantMatrix: {},
+    offers: [],
+    emiOptions: [],
+    highlights: ['1.4-inch AMOLED Screen', 'SpO2 & Heart Rate Monitor', 'IP68 Waterproof'],
+    description: 'Scandinavian aesthetic meets advanced biometric tracking.',
+    specifications: { General: { 'Display': '1.4 AMOLED' } },
+    reviews: [],
+    frequentlyBoughtTogether: [],
+    featured: false
   },
   {
-    id: 'prod-3',
-    name: 'Urban Explorer Waterproof Backpack 25L',
-    slug: 'urban-explorer-backpack-25l',
-    category: 'accessories',
-    price: 98.00,
-    originalPrice: 125.00,
+    id: 'prod-sony-tv',
+    name: 'Sony Bravia 55-inch 4K Ultra HD Smart OLED Google TV',
+    slug: 'sony-bravia-4k-oled-tv',
+    brand: 'Sony',
+    sku: 'SNY-BRV-55-OLED',
+    category: 'electronics',
+    productType: 'tv',
+    badge: 'Cinema 4K',
     rating: 4.9,
-    reviewCount: 215,
-    badge: 'Top Rated',
+    reviewCount: 2310,
+    stock: 8,
+    images: [
+      'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1461151304267-38535e780c79?auto=format&fit=crop&w=1000&q=80'
+    ],
+    videos: [],
+    price: { original: 119990, current: 89990, currency: '₹', taxIncluded: true },
+    variants: {},
+    variantMatrix: {},
+    offers: [
+      { id: 'off-sn-1', title: 'No Cost EMI', description: 'No Cost EMI from ₹7,499/month on all major banks', type: 'emi' }
+    ],
+    emiOptions: [],
+    highlights: [
+      'Cognitive Processor XR with Acoustic Surface Audio+',
+      'Dolby Vision & Dolby Atmos Cinematic Experience',
+      'HDMI 2.1 4K 120Hz VRR for PS5 Gaming'
+    ],
+    description: 'Unmatched pure blacks and vibrant colors with Sony Cognitive Processor XR.',
+    specifications: { General: { 'Screen Size': '55 inch', 'Resolution': '4K OLED' } },
+    reviews: [],
+    frequentlyBoughtTogether: [],
+    featured: true
+  },
+
+  // 4. APPLIANCES
+  {
+    id: 'prod-chopper-pro',
+    name: 'ProChef Master Stainless Steel Electric Food Chopper (650ml)',
+    slug: 'prochef-master-food-chopper',
+    brand: 'ProChef',
+    sku: 'PRC-CHP-650ML',
+    category: 'appliances',
+    productType: 'chopper',
+    badge: 'Kitchen Best',
+    rating: 4.7,
+    reviewCount: 1840,
     stock: 35,
     images: [
-      'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1000&q=80'
     ],
-    colors: ['Charcoal Gray', 'Midnight Navy', 'Olive Green'],
-    description: 'Designed for daily commuters and weekend adventurers alike. Features padded 16" laptop sleeve, waterproof CORDURA® fabric, and hidden anti-theft pocket.',
-    features: [
-      'Weather-resistant 900D CORDURA® construction',
-      'Dedicated padded sleeve fits up to 16" MacBook Pro',
-      'Integrated USB charging pass-through port',
-      'Luggage strap for effortless travel'
-    ],
-    specs: {
-      Capacity: '25 Liters',
-      Dimensions: '48 x 32 x 18 cm',
-      Material: 'Waterproof CORDURA® Nylon',
-      LaptopSleeve: 'Up to 16 inches'
-    },
+    videos: [],
+    price: { original: 2999, current: 1499, currency: '₹', taxIncluded: true },
+    variants: { capacity: ['500 ml', '650 ml', '1000 ml'] },
+    variantMatrix: {},
+    offers: [],
+    emiOptions: [],
+    highlights: ['Pure copper 400W motor', '304 Stainless steel 4-leaf blades'],
+    description: 'Effortlessly chop vegetables, nuts, and herbs in seconds.',
+    specifications: { General: { 'Capacity': '650 ml' } },
+    reviews: [],
+    frequentlyBoughtTogether: [],
     featured: true
   },
   {
-    id: 'prod-4',
-    name: 'Classic Merino Wool Oversized Sweater',
-    slug: 'classic-merino-wool-sweater',
-    category: 'apparel',
-    price: 119.00,
-    originalPrice: 145.00,
-    rating: 4.7,
-    reviewCount: 64,
-    badge: 'New Arrival',
+    id: 'prod-lg-washer',
+    name: 'LG 8kg 5-Star Inverter Direct Drive Front Load Washing Machine',
+    slug: 'lg-front-load-washing-machine',
+    brand: 'LG',
+    sku: 'LG-WSH-8KG-FL',
+    category: 'appliances',
+    productType: 'appliance',
+    badge: '5 Star Eco',
+    rating: 4.8,
+    reviewCount: 3100,
     stock: 15,
     images: [
-      'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=1000&q=80'
     ],
-    colors: ['Oatmeal Cream', 'Charcoal', 'Forest Green'],
-    sizes: ['S', 'M', 'L', 'XL'],
-    description: 'Crafted from 100% extra-fine Australian Merino wool. Delivers unparalleled soft warmth, breathable comfort, and effortless relaxed tailoring.',
-    features: [
-      '100% Extra-Fine Merino Wool yarn',
-      'Ribbed knit crew neck, cuffs, and hem',
-      'Naturally temperature-regulating & odor-resistant',
-      'Ethically sourced & sustainable wool'
+    videos: [],
+    price: { original: 44990, current: 34990, currency: '₹', taxIncluded: true },
+    variants: {},
+    variantMatrix: {},
+    offers: [],
+    emiOptions: [],
+    highlights: ['AI Direct Drive with 6 Motion Wash Technology', 'Steam Hygiene Wash removes 99.9% allergens', '5 Star Energy Rating'],
+    description: 'Intelligent AI DD technology protects clothes while deep cleaning.',
+    specifications: { General: { 'Capacity': '8 kg', 'Type': 'Front Load' } },
+    reviews: [],
+    frequentlyBoughtTogether: [],
+    featured: true
+  },
+  {
+    id: 'prod-philips-airfryer',
+    name: 'Philips Digital Air Fryer XL (4.1 Liter, 1400W RapidAir Tech)',
+    slug: 'philips-air-fryer-hd',
+    brand: 'Philips',
+    sku: 'PHL-AF-XL-41',
+    category: 'appliances',
+    productType: 'appliance',
+    badge: 'Healthy Cook',
+    rating: 4.7,
+    reviewCount: 4210,
+    stock: 22,
+    images: [
+      'https://images.unsplash.com/photo-1585515320310-259814833e62?auto=format&fit=crop&w=1000&q=80'
     ],
-    specs: {
-      Material: '100% Australian Merino Wool',
-      Fit: 'Relaxed / Oversized',
-      Care: 'Hand wash cold or dry clean'
-    },
+    videos: [],
+    price: { original: 12995, current: 8499, currency: '₹', taxIncluded: true },
+    variants: {},
+    variantMatrix: {},
+    offers: [],
+    emiOptions: [],
+    highlights: ['Up to 90% less oil with RapidAir Technology', '7 Presets touch panel interface'],
+    description: 'Healthy fried food with crispy outside and tender inside.',
+    specifications: { General: { 'Capacity': '4.1 Liters' } },
+    reviews: [],
+    frequentlyBoughtTogether: [],
+    featured: false
+  },
+
+  // 5. FASHION
+  {
+    id: 'prod-3',
+    name: 'Luxe Genuine Leather Crossbody Bag',
+    slug: 'luxe-leather-crossbody-bag',
+    brand: 'Luxe',
+    sku: 'LUX-BAG-01',
+    category: 'fashion',
+    productType: 'fashion',
+    badge: 'Popular',
+    rating: 4.9,
+    reviewCount: 210,
+    stock: 12,
+    images: [
+      'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=80'
+    ],
+    videos: [],
+    price: { original: 12999, current: 8999, currency: '₹', taxIncluded: true },
+    variants: { colors: [{ name: 'Tan Brown', hex: '#b45309' }] },
+    variantMatrix: {},
+    offers: [],
+    emiOptions: [],
+    highlights: ['100% full-grain Italian leather', 'Gold-plated hardware'],
+    description: 'Handcrafted luxury crossbody bag.',
+    specifications: { General: { 'Material': 'Italian Leather' } },
+    reviews: [],
+    frequentlyBoughtTogether: [],
     featured: false
   },
   {
     id: 'prod-5',
-    name: 'AcousticPulse Portable Bluetooth Speaker',
-    slug: 'acousticpulse-portable-speaker',
-    category: 'electronics',
-    price: 129.99,
-    originalPrice: 159.99,
-    rating: 4.5,
-    reviewCount: 96,
-    badge: 'Sale',
-    stock: 42,
-    images: [
-      'https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=800&q=80'
-    ],
-    colors: ['Graphite Black', 'Ocean Blue', 'Crimson Red'],
-    description: '360° room-filling sound with punchy bass, IP67 dust and waterproof rating, and custom RGB light rings that pulse to your playlist beats.',
-    features: [
-      'Dual passive radiators for deep low-end response',
-      'IP67 dustproof and waterproof rated',
-      'Up to 20 hours continuous audio playback',
-      'Stereo pairing mode connect two units together'
-    ],
-    specs: {
-      OutputPower: '30W RMS',
-      BatteryLife: '20 Hours',
-      WaterproofRating: 'IP67',
-      Weight: '680g'
-    },
-    featured: true
-  },
-  {
-    id: 'prod-6',
-    name: 'Lumina Ceramic Dimmable Desk Lamp',
-    slug: 'lumina-ceramic-desk-lamp',
-    category: 'home',
-    price: 79.00,
-    originalPrice: 95.00,
-    rating: 4.8,
-    reviewCount: 52,
+    name: 'Organic Cotton Essential Crewneck T-Shirt',
+    slug: 'cotton-essential-crewneck-tshirt',
+    brand: 'Nexus Basics',
+    sku: 'NEX-TSH-01',
+    category: 'fashion',
+    productType: 'apparel',
     badge: 'Eco Friendly',
-    stock: 20,
+    rating: 4.5,
+    reviewCount: 320,
+    stock: 50,
     images: [
-      'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=80'
     ],
-    colors: ['Sandstone Beige', 'Matte Sage', 'Terracotta'],
-    description: 'Handcrafted ceramic base paired with an energy-efficient dimmable LED bulb. Warm ambient lighting designed to elevate modern study and bedroom spaces.',
-    features: [
-      'Hand-thrown textured ceramic base',
-      'Touch-sensitive 3-stage dimming control',
-      'Soft 2700K warm glow LED included (CRI 90+)',
-      'Fabric braided power cord'
-    ],
-    specs: {
-      BaseMaterial: 'Glazed Ceramic',
-      BulbType: 'LED E27 6W Warm White',
-      Dimensions: '34cm Height x 22cm Width',
-      CordLength: '1.8 Meters'
-    },
+    videos: [],
+    price: { original: 1499, current: 799, currency: '₹', taxIncluded: true },
+    variants: { size: ['S', 'M', 'L', 'XL'] },
+    variantMatrix: {},
+    offers: [],
+    emiOptions: [],
+    highlights: ['100% Certified Organic Cotton', 'Pre-shrunk breathable fit'],
+    description: 'Daily essential organic cotton tee.',
+    specifications: { General: { 'Fabric': 'Organic Cotton' } },
+    reviews: [],
+    frequentlyBoughtTogether: [],
     featured: false
   },
   {
-    id: 'prod-7',
-    name: 'Vanguard Polarized Aviator Sunglasses',
-    slug: 'vanguard-polarized-aviators',
-    category: 'accessories',
-    price: 135.00,
-    originalPrice: 160.00,
-    rating: 4.7,
-    reviewCount: 78,
-    badge: 'Popular',
-    stock: 28,
-    images: [
-      'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=800&q=80'
-    ],
-    colors: ['Gold / Brown Lens', 'Black / G-15 Green', 'Silver / Mirror Blue'],
-    description: 'Timeless tear-drop silhouette engineered with ultralight titanium frames and HD polarized TAC lenses offering 100% UV400 protection.',
-    features: [
-      'HD Polarized 9-layer TAC anti-glare lenses',
-      '100% UV400 UVA & UVB protection',
-      'Flexible Japanese titanium alloy frame',
-      'Adjustable silicone anti-slip nose pads'
-    ],
-    specs: {
-      FrameMaterial: 'Beta-Titanium Alloy',
-      LensTechnology: 'Polarized TAC',
-      UVProtection: 'UV400 (100%)',
-      Includes: 'Leather hard case & micro-fiber cloth'
-    },
-    featured: false
-  },
-  {
-    id: 'prod-8',
-    name: 'Artisan Pour-Over Coffee Dripper Set',
-    slug: 'artisan-pour-over-coffee-set',
-    category: 'home',
-    price: 64.99,
-    originalPrice: 79.99,
-    rating: 4.9,
-    reviewCount: 110,
-    badge: 'Bestseller',
-    stock: 40,
-    images: [
-      'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80'
-    ],
-    colors: ['Matte Black Steel', 'Walnut Wood Stand'],
-    description: 'Master the perfect brew. Includes heat-resistant borosilicate glass carafe, precision spiral groove dripper cone, and stainless steel filter.',
-    features: [
-      '600ml Borosilicate glass carafe (4 cups)',
-      'Dual-layer reusable stainless steel mesh filter',
-      'Natural walnut wood collar & silicone grip',
-      'BPA-free & dishwasher safe glass'
-    ],
-    specs: {
-      Capacity: '600 ml (20 oz)',
-      Material: 'Borosilicate Glass & 304 Stainless Steel',
-      Dimensions: '21cm x 13cm'
-    },
-    featured: true
-  },
-  {
-    id: 'prod-9',
-    name: 'Pro-Glide Mechanical Gaming Keyboard',
-    slug: 'pro-glide-mechanical-keyboard',
-    category: 'electronics',
-    price: 159.00,
-    originalPrice: 189.00,
+    id: 'prod-nike-shoes',
+    name: 'Nike Air Max Modern Running Shoes',
+    slug: 'nike-air-max-sneakers',
+    brand: 'Nike',
+    sku: 'NKE-AM-MOD-01',
+    category: 'fashion',
+    productType: 'footwear',
+    badge: 'Trending Footwear',
     rating: 4.8,
-    reviewCount: 184,
-    badge: 'Gamer Choice',
-    stock: 22,
-    images: [
-      'https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&w=800&q=80'
-    ],
-    colors: ['Stealth Black', 'Retro White'],
-    description: 'Hot-swappable mechanical keyboard featuring lubricated linear switches, sound-dampening gasket mount structure, and customizable per-key RGB.',
-    features: [
-      'Hot-swappable 5-pin PCB layout',
-      'Gasket mounted with dual-layer sound foam',
-      'Doubleshot PBT cherry profile keycaps',
-      'Tri-mode connectivity (2.4GHz, Bluetooth 5.0, Type-C)'
-    ],
-    specs: {
-      Layout: '75% Compact (82 Keys)',
-      Switches: 'Pre-lubed Red Linear Switches',
-      Battery: '4000 mAh Rechargeable'
-    },
-    featured: false
-  },
-  {
-    id: 'prod-10',
-    name: 'Organic Cotton Denim Jacket',
-    slug: 'organic-cotton-denim-jacket',
-    category: 'apparel',
-    price: 125.00,
-    originalPrice: 150.00,
-    rating: 4.6,
-    reviewCount: 45,
-    badge: 'Sustainable',
-    stock: 12,
-    images: [
-      'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1543076447-215ad9ba6923?auto=format&fit=crop&w=800&q=80'
-    ],
-    colors: ['Vintage Wash Blue', 'Washed Indigo', 'Pitch Black'],
-    sizes: ['S', 'M', 'L', 'XL'],
-    description: 'A modern take on the iconic trucker jacket. Made from 100% GOTS certified organic denim with durable copper hardware.',
-    features: [
-      '100% GOTS Certified Organic Cotton',
-      'Heavyweight 14oz rigid denim fabric',
-      'Dual chest button flap pockets & side entry hand pockets',
-      'Reinforced double-needle stitching'
-    ],
-    specs: {
-      FabricWeight: '14 oz Denim',
-      Hardware: 'Recycled Copper Buttons',
-      Origin: 'Ethically Manufactured'
-    },
-    featured: false
-  },
-  {
-    id: 'prod-11',
-    name: 'Ultra-Quiet Smart Air Purifier HEPA H13',
-    slug: 'ultra-quiet-smart-air-purifier',
-    category: 'home',
-    price: 179.99,
-    originalPrice: 219.99,
-    rating: 4.9,
-    reviewCount: 130,
-    badge: 'Top Seller',
+    reviewCount: 1490,
     stock: 16,
     images: [
-      'https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=80'
     ],
-    colors: ['Pure White', 'Space Gray'],
-    description: 'Captures 99.97% of airborne allergens, pollen, dust, and smoke particles. Real-time air quality sensor automatically adjusts fan speeds silently.',
-    features: [
-      '3-stage filtration: Pre-filter, True HEPA H13, Activated Carbon',
-      'Covers room areas up to 450 sq ft (CADR 230 m³/h)',
-      'Sleep mode operates at a whisper quiet 22dB',
-      'Smart WiFi app control & Google Assistant support'
+    videos: [],
+    price: { original: 11995, current: 9995, currency: '₹', taxIncluded: true },
+    variants: { size: ['UK 7', 'UK 8', 'UK 9', 'UK 10'] },
+    variantMatrix: {},
+    offers: [],
+    emiOptions: [],
+    highlights: ['Max Air cushioning unit for all-day comfort', 'Breathable mesh upper'],
+    description: 'Iconic street style combined with ultimate sports cushioning.',
+    specifications: { General: { 'Brand': 'Nike', 'Category': 'Running Shoes' } },
+    reviews: [],
+    frequentlyBoughtTogether: [],
+    featured: true
+  },
+
+  // 6. HOME & FURNITURE
+  {
+    id: 'prod-4',
+    name: 'Ergonomic Executive Mesh Office Chair',
+    slug: 'ergonomic-executive-office-chair',
+    brand: 'ErgoPos',
+    sku: 'ERG-CHR-01',
+    category: 'home',
+    productType: 'furniture',
+    badge: 'Workplace Choice',
+    rating: 4.7,
+    reviewCount: 540,
+    stock: 9,
+    images: [
+      'https://images.unsplash.com/photo-1580481072645-022f9a6d83d0?auto=format&fit=crop&w=1000&q=80'
     ],
-    specs: {
-      FilterType: 'True HEPA H13 Grade',
-      CoverageArea: '450 sq ft',
-      NoiseLevel: '22dB - 50dB'
-    },
+    videos: [],
+    price: { original: 18999, current: 12499, currency: '₹', taxIncluded: true },
+    variants: {},
+    variantMatrix: {},
+    offers: [],
+    emiOptions: [],
+    highlights: ['3D Adjustable Armrests & Lumbar Support', 'Breathable Korean Mesh backrest'],
+    description: 'All-day ergonomic comfort for home office productivity.',
+    specifications: { General: { 'Material': 'Breathable Mesh' } },
+    reviews: [],
+    frequentlyBoughtTogether: [],
     featured: false
   },
   {
-    id: 'prod-12',
-    name: 'Ergonomic Breathable Mesh Office Chair',
-    slug: 'ergonomic-mesh-office-chair',
+    id: 'prod-dyson-vacuum',
+    name: 'Dyson V15 Detect Cordless Vacuum Cleaner',
+    slug: 'dyson-v15-cordless-vacuum',
+    brand: 'Dyson',
+    sku: 'DYS-V15-DET',
     category: 'home',
-    price: 289.00,
-    originalPrice: 349.00,
-    rating: 4.7,
-    reviewCount: 98,
-    badge: 'Workplace Essential',
-    stock: 10,
+    productType: 'appliance',
+    badge: 'Smart Cleaning',
+    rating: 4.9,
+    reviewCount: 980,
+    stock: 6,
     images: [
-      'https://images.unsplash.com/photo-1580481072645-022f9a6d83d0?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1505797149-43b0069ec26b?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&w=1000&q=80'
     ],
-    colors: ['All Black', 'Cool Gray / Silver Base'],
-    description: 'Engineered for all-day lumbar support. Features 3D adjustable armrests, dynamic mesh backrest, recline lock, and pneumatic seat height adjustment.',
-    features: [
-      'Adaptive dynamic lumbar support pillow',
-      'Heavy-duty aluminum alloy 5-star swivel base',
-      'BIFMA certified Class-4 gas lift cylinder',
-      'Silent smooth-rolling polyurethane casters'
-    ],
-    specs: {
-      WeightCapacity: '150 kg (330 lbs)',
-      ReclineAngle: '90° - 135°',
-      Warranty: '3 Years Warranty'
-    },
-    featured: false
+    videos: [],
+    price: { original: 62900, current: 52900, currency: '₹', taxIncluded: true },
+    variants: {},
+    variantMatrix: {},
+    offers: [],
+    emiOptions: [],
+    highlights: ['Laser reveals invisible dust on hard floors', 'Piezo sensor counts particles & adjusts power automatically'],
+    description: 'Most powerful, intelligent cordless vacuum cleaner from Dyson.',
+    specifications: { General: { 'Brand': 'Dyson', 'Run Time': '60 Mins' } },
+    reviews: [],
+    frequentlyBoughtTogether: [],
+    featured: true
   }
 ];

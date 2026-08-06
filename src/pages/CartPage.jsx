@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../hooks/useCart';
 import { formatCurrency } from '../utils/formatCurrency';
-import { ShoppingBag, Trash2, Plus, Minus, ArrowRight, Tag, ArrowLeft } from 'lucide-react';
+import { ShoppingBag, Trash2, Plus, Minus, ArrowRight, ArrowLeft } from 'lucide-react';
 import { RemoveConfirmationModal } from '../components/common/RemoveConfirmationModal';
 
 export const CartPage = () => {
@@ -14,8 +14,7 @@ export const CartPage = () => {
     discount,
     shipping,
     total,
-    appliedPromo,
-    setAppliedPromo
+    appliedPromo
   } = useCart();
 
   const [itemToRemove, setItemToRemove] = useState(null);

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../hooks/useCart';
 import { formatCurrency } from '../utils/formatCurrency';
 import { localDataService } from '../services/localDataService';
-import { ShieldCheck, CreditCard, Truck, CheckCircle2, Lock } from 'lucide-react';
+import { CreditCard, Truck, CheckCircle2, Lock } from 'lucide-react';
 import { Steps } from 'antd';
 import { TextField, Button as MuiButton, Paper } from '@mui/material';
 import { toast } from 'sonner';

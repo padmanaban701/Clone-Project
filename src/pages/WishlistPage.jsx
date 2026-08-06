@@ -1,8 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { useWishlist } from '../hooks/useWishlist';
 import { ProductCard } from '../components/product/ProductCard';
-import { Heart, ShoppingBag, ArrowLeft } from 'lucide-react';
+import { Heart, ArrowLeft } from 'lucide-react';
 
 export const WishlistPage = () => {
   const { wishlist } = useWishlist();

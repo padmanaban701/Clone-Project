@@ -1,4 +1,3 @@
-import React from 'react';
 import { ProductCard } from './ProductCard';
 import { PackageSearch } from 'lucide-react';
 import Skeleton from 'react-loading-skeleton';

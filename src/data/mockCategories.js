@@ -8,39 +8,57 @@ export const mockCategories = [
     itemCount: 16
   },
   {
+    id: 'mobiles',
+    name: 'Mobiles & 5G',
+    slug: 'mobiles',
+    icon: 'Smartphone',
+    image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80',
+    description: 'Latest iPhones, Android flagships & 5G smartphones',
+    itemCount: 3
+  },
+  {
+    id: 'laptops',
+    name: 'Laptops & PCs',
+    slug: 'laptops',
+    icon: 'Laptop',
+    image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80',
+    description: 'Thin & light notebooks, gaming laptops, and MacBooks',
+    itemCount: 2
+  },
+  {
     id: 'electronics',
-    name: 'Electronics',
+    name: 'Electronics & Audio',
     slug: 'electronics',
     icon: 'Headphones',
     image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80',
-    description: 'Audio, smart devices, and high-tech gear',
-    itemCount: 5
+    description: 'Audio, smart watches, OLED TVs & high-tech gear',
+    itemCount: 3
   },
   {
-    id: 'apparel',
+    id: 'appliances',
+    name: 'TVs & Appliances',
+    slug: 'appliances',
+    icon: 'Tv',
+    image: 'https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=600&q=80',
+    description: 'Washing machines, air fryers, choppers & smart home gear',
+    itemCount: 3
+  },
+  {
+    id: 'fashion',
     name: 'Fashion & Wear',
-    slug: 'apparel',
+    slug: 'fashion',
     icon: 'Shirt',
     image: 'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=600&q=80',
-    description: 'Modern clothing, outerwear, and accessories',
-    itemCount: 4
-  },
-  {
-    id: 'accessories',
-    name: 'Accessories',
-    slug: 'accessories',
-    icon: 'Watch',
-    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80',
-    description: 'Watches, bags, sunglasses, and daily essentials',
-    itemCount: 4
+    description: 'Modern apparel, leather bags & footwear',
+    itemCount: 3
   },
   {
     id: 'home',
-    name: 'Home & Living',
+    name: 'Home & Furniture',
     slug: 'home',
     icon: 'Home',
-    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80',
-    description: 'Minimalist furniture, lamps, and home decor',
-    itemCount: 3
+    image: 'https://images.unsplash.com/photo-1580481072645-022f9a6d83d0?auto=format&fit=crop&w=600&q=80',
+    description: 'Ergonomic office chairs, vacuums & home decor',
+    itemCount: 2
   }
 ];

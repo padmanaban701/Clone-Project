@@ -1,8 +1,9 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+/* eslint-disable react-refresh/only-export-components */
+import { createContext, useState, useEffect } from 'react';
 import { getItem, setItem } from '../utils/storage';
 import { toast } from 'sonner';
 
-const WishlistContext = createContext();
+export const WishlistContext = createContext();
 
 const WISHLIST_STORAGE_KEY = 'ecom_wishlist_items';
 
@@ -49,10 +50,3 @@ export const WishlistProvider = ({ children }) => {
   );
 };
 
-export const useWishlist = () => {
-  const context = useContext(WishlistContext);
-  if (!context) {
-    throw new Error('useWishlist must be used within a WishlistProvider');
-  }
-  return context;
-};

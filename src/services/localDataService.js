@@ -5,61 +5,63 @@ import { getItem, setItem } from '../utils/storage';
 
 const ORDERS_KEY = 'ecom_orders_history';
 
-// Helper to simulate realistic network delay
-const delay = (ms = 250) => new Promise(resolve => setTimeout(resolve, ms));
+const delay = (ms = 150) => new Promise(resolve => setTimeout(resolve, ms));
 
 export const localDataService = {
-  // Fetch all products with filter, search, sort, and price range options
   async getProducts({
     category = 'all',
     searchQuery = '',
-    priceRange = [0, 500],
+    priceRange = [0, 500000],
     sortBy = 'featured',
     minRating = 0
   } = {}) {
-    await delay(200);
+    await delay(150);
 
     let filtered = [...mockProducts];
 
-    // Filter by Category
     if (category && category !== 'all') {
-      filtered = filtered.filter(p => p.category.toLowerCase() === category.toLowerCase());
+      const targetCat = category.toLowerCase();
+      filtered = filtered.filter(p => {
+        const cat = p.category.toLowerCase();
+        if (cat === targetCat) return true;
+        if (targetCat === 'apparel' && cat === 'fashion') return true;
+        if (targetCat === 'fashion' && cat === 'apparel') return true;
+        return false;
+      });
     }
 
-    // Filter by Search Query (Name, Description, Tags)
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase().trim();
       filtered = filtered.filter(
         p => p.name.toLowerCase().includes(q) ||
-             p.description.toLowerCase().includes(q) ||
+             (p.description && p.description.toLowerCase().includes(q)) ||
              p.category.toLowerCase().includes(q) ||
-             (p.badge && p.badge.toLowerCase().includes(q))
+             (p.badge && p.badge.toLowerCase().includes(q)) ||
+             (p.brand && p.brand.toLowerCase().includes(q))
       );
     }
 
-    // Filter by Price Range
-    filtered = filtered.filter(
-      p => p.price >= priceRange[0] && p.price <= priceRange[1]
-    );
+    filtered = filtered.filter(p => {
+      const numericPrice = typeof p.price === 'object' ? p.price.current : p.price;
+      return numericPrice >= (priceRange[0] || 0) && numericPrice <= (priceRange[1] || 1000000);
+    });
 
-    // Filter by Rating
     if (minRating > 0) {
       filtered = filtered.filter(p => p.rating >= minRating);
     }
 
-    // Sort Products
     switch (sortBy) {
       case 'price-low':
-        filtered.sort((a, b) => a.price - b.price);
+        filtered.sort((a, b) => (typeof a.price === 'object' ? a.price.current : a.price) - (typeof b.price === 'object' ? b.price.current : b.price));
         break;
       case 'price-high':
-        filtered.sort((a, b) => b.price - a.price);
+        filtered.sort((a, b) => (typeof b.price === 'object' ? b.price.current : b.price) - (typeof a.price === 'object' ? a.price.current : a.price));
         break;
       case 'rating':
         filtered.sort((a, b) => b.rating - a.rating);
         break;
       case 'newest':
-        filtered.sort((a, b) => (b.badge === 'New Arrival' ? 1 : -1));
+        filtered.sort((a, b) => (b.badge === 'New Launch' || b.badge === 'New Arrival' ? 1 : -1));
         break;
       case 'featured':
       default:
@@ -70,27 +72,55 @@ export const localDataService = {
     return filtered;
   },
 
-  // Fetch product by ID or Slug
   async getProductById(idOrSlug) {
-    await delay(150);
-    return mockProducts.find(p => p.id === idOrSlug || p.slug === idOrSlug) || null;
+    await delay(100);
+    const key = String(idOrSlug || '').toLowerCase();
+    let product = mockProducts.find(
+      p => p.id.toLowerCase() === key || p.slug.toLowerCase() === key
+    );
+
+    if (!product) {
+      product = mockProducts.find(
+        p => key.includes(p.slug.toLowerCase()) || p.slug.toLowerCase().includes(key)
+      ) || mockProducts[0];
+    }
+
+    // Normalize price object
+    const normalizedPrice = typeof product.price === 'object'
+      ? product.price
+      : { current: product.price, original: product.originalPrice || product.price, currency: '$', taxIncluded: true };
+
+    return {
+      ...product,
+      brand: product.brand || 'Nexus Premium',
+      sku: product.sku || `NEX-${product.id.toUpperCase()}`,
+      videos: product.videos || [],
+      variants: product.variants || {
+        colors: product.colors ? product.colors.map(c => ({ name: c, image: product.images?.[0] || '' })) : []
+      },
+      variantMatrix: product.variantMatrix || {},
+      price: normalizedPrice,
+      offers: product.offers || [],
+      emiOptions: product.emiOptions || [],
+      highlights: product.highlights || product.features || [],
+      specifications: product.specifications || product.specs || {},
+      reviews: product.reviews || [],
+      frequentlyBoughtTogether: product.frequentlyBoughtTogether || []
+    };
   },
 
-  // Fetch categories
   async getCategories() {
     await delay(100);
     return mockCategories;
   },
 
-  // Fetch featured products
   async getFeaturedProducts() {
     await delay(150);
     return mockProducts.filter(p => p.featured);
   },
 
-  // Validate discount coupon code
   async validateCoupon(code) {
-    await delay(150);
+    await delay(100);
     if (!code) return { valid: false, message: 'Please enter a coupon code' };
 
     const promo = mockPromos.find(p => p.code.toUpperCase() === code.trim().toUpperCase());
@@ -100,9 +130,8 @@ export const localDataService = {
     return { valid: false, message: 'Invalid coupon code' };
   },
 
-  // Place a new order into localStorage
   async placeOrder(orderData) {
-    await delay(400);
+    await delay(300);
     const existingOrders = getItem(ORDERS_KEY, []);
     const newOrder = {
       orderId: 'ORD-' + Math.floor(100000 + Math.random() * 900000),
@@ -116,9 +145,8 @@ export const localDataService = {
     return newOrder;
   },
 
-  // Get order history
   async getOrders() {
-    await delay(150);
+    await delay(100);
     return getItem(ORDERS_KEY, []);
   }
 };

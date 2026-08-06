@@ -1,4 +1,3 @@
-import React from 'react';
 import { useFilter } from '../../hooks/useFilter';
 import { mockCategories } from '../../data/mockCategories';
 import { RotateCcw, Filter } from 'lucide-react';
@@ -98,7 +97,7 @@ export const ProductFilter = () => {
       <div>
         <div className="flex items-center justify-between mb-2">
           <label className="text-xs font-bold uppercase tracking-wider text-slate-500">
-            Max Price (Radix UI Slider)
+            Max Price Filter
           </label>
           <span className="text-xs font-bold text-indigo-600">
             {formatCurrency(priceRange[1])}
@@ -108,9 +107,9 @@ export const ProductFilter = () => {
         <RadixSlider.Root
           className="relative flex items-center select-none touch-none w-full h-5"
           value={[priceRange[1]]}
-          max={500}
-          min={20}
-          step={10}
+          max={200000}
+          min={0}
+          step={5000}
           onValueChange={(val) => setPriceRange([0, val[0]])}
         >
           <RadixSlider.Track className="bg-slate-200 relative grow rounded-full h-2">
@@ -123,8 +122,8 @@ export const ProductFilter = () => {
         </RadixSlider.Root>
 
         <div className="flex justify-between text-[10px] text-slate-400 font-semibold mt-1">
-          <span>$20</span>
-          <span>$500</span>
+          <span>{formatCurrency(0)}</span>
+          <span>{formatCurrency(200000)}</span>
         </div>
       </div>
 

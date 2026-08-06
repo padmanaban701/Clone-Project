@@ -1,4 +1,4 @@
-import React from 'react';
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Third-party UI Suite Providers (Material UI & Ant Design)
@@ -12,20 +12,32 @@ import { WishlistProvider } from './context/WishlistContext';
 import { CartProvider } from './context/CartContext';
 import { FilterProvider } from './context/FilterContext';
 
-// Layout
+// Layout & Helpers
 import { MainLayout } from './layouts/MainLayout';
+import { ScrollToTop } from './components/common/ScrollToTop';
 
-// Pages
-import { HomePage } from './pages/HomePage';
-import { ShopPage } from './pages/ShopPage';
-import { ProductDetailPage } from './pages/ProductDetailPage';
-import { CartPage } from './pages/CartPage';
-import { CheckoutPage } from './pages/CheckoutPage';
-import { WishlistPage } from './pages/WishlistPage';
-import { OrderSuccessPage } from './pages/OrderSuccessPage';
-import { LoginPage } from './pages/LoginPage';
-import { RegisterPage } from './pages/RegisterPage';
-import { NotFoundPage } from './pages/NotFoundPage';
+// Lazy-Loaded Pages for Optimal Code Splitting
+const HomePage = lazy(() => import('./pages/HomePage').then(m => ({ default: m.HomePage })));
+const ShopPage = lazy(() => import('./pages/ShopPage').then(m => ({ default: m.ShopPage })));
+const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage').then(m => ({ default: m.ProductDetailPage })));
+const CartPage = lazy(() => import('./pages/CartPage').then(m => ({ default: m.CartPage })));
+const CheckoutPage = lazy(() => import('./pages/CheckoutPage').then(m => ({ default: m.CheckoutPage })));
+const WishlistPage = lazy(() => import('./pages/WishlistPage').then(m => ({ default: m.WishlistPage })));
+const OrderSuccessPage = lazy(() => import('./pages/OrderSuccessPage').then(m => ({ default: m.OrderSuccessPage })));
+const OrderHistoryPage = lazy(() => import('./pages/OrderHistoryPage').then(m => ({ default: m.OrderHistoryPage })));
+const LoginPage = lazy(() => import('./pages/LoginPage').then(m => ({ default: m.LoginPage })));
+const RegisterPage = lazy(() => import('./pages/RegisterPage').then(m => ({ default: m.RegisterPage })));
+
+// Informational & Support Pages
+const AboutPage = lazy(() => import('./pages/info/AboutPage').then(m => ({ default: m.AboutPage })));
+const SustainabilityPage = lazy(() => import('./pages/info/SustainabilityPage').then(m => ({ default: m.SustainabilityPage })));
+const CareersPage = lazy(() => import('./pages/info/CareersPage').then(m => ({ default: m.CareersPage })));
+const PrivacyTermsPage = lazy(() => import('./pages/info/PrivacyTermsPage').then(m => ({ default: m.PrivacyTermsPage })));
+const ShippingDeliveryPage = lazy(() => import('./pages/info/ShippingDeliveryPage').then(m => ({ default: m.ShippingDeliveryPage })));
+const ReturnsExchangesPage = lazy(() => import('./pages/info/ReturnsExchangesPage').then(m => ({ default: m.ReturnsExchangesPage })));
+const HelpCenterPage = lazy(() => import('./pages/info/HelpCenterPage').then(m => ({ default: m.HelpCenterPage })));
+
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then(m => ({ default: m.NotFoundPage })));
 
 // TanStack Query Setup
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -57,6 +69,13 @@ const muiTheme = createTheme({
   },
 });
 
+const PageLoader = () => (
+  <div className="min-h-[60vh] flex flex-col items-center justify-center space-y-4">
+    <div className="w-10 h-10 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin" />
+    <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Loading...</span>
+  </div>
+);
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
@@ -72,32 +91,46 @@ function App() {
         >
           <CssBaseline />
           <BrowserRouter>
-          <AuthProvider>
-            <WishlistProvider>
-              <CartProvider>
-                <FilterProvider>
-                  <Routes>
-                    <Route path="/" element={<MainLayout />}>
-                      <Route index element={<HomePage />} />
-                      <Route path="shop" element={<ShopPage />} />
-                      <Route path="product/:slug" element={<ProductDetailPage />} />
-                      <Route path="cart" element={<CartPage />} />
-                      <Route path="checkout" element={<CheckoutPage />} />
-                      <Route path="wishlist" element={<WishlistPage />} />
-                      <Route path="order-success/:orderId" element={<OrderSuccessPage />} />
-                      <Route path="login" element={<LoginPage />} />
-                      <Route path="register" element={<RegisterPage />} />
-                      <Route path="*" element={<NotFoundPage />} />
-                    </Route>
-                  </Routes>
-                </FilterProvider>
-              </CartProvider>
-            </WishlistProvider>
-          </AuthProvider>
-        </BrowserRouter>
-      </ConfigProvider>
-    </ThemeProvider>
-  </QueryClientProvider>
+            <ScrollToTop />
+            <AuthProvider>
+              <WishlistProvider>
+                <CartProvider>
+                  <FilterProvider>
+                    <Suspense fallback={<PageLoader />}>
+                      <Routes>
+                        <Route path="/" element={<MainLayout />}>
+                          <Route index element={<HomePage />} />
+                          <Route path="shop" element={<ShopPage />} />
+                          <Route path="product/:slug" element={<ProductDetailPage />} />
+                          <Route path="cart" element={<CartPage />} />
+                          <Route path="checkout" element={<CheckoutPage />} />
+                          <Route path="wishlist" element={<WishlistPage />} />
+                          <Route path="orders" element={<OrderHistoryPage />} />
+                          <Route path="order-success/:orderId" element={<OrderSuccessPage />} />
+                          <Route path="login" element={<LoginPage />} />
+                          <Route path="register" element={<RegisterPage />} />
+                          
+                          {/* Info & Customer Support Routes */}
+                          <Route path="about" element={<AboutPage />} />
+                          <Route path="sustainability" element={<SustainabilityPage />} />
+                          <Route path="careers" element={<CareersPage />} />
+                          <Route path="privacy-terms" element={<PrivacyTermsPage />} />
+                          <Route path="shipping-delivery" element={<ShippingDeliveryPage />} />
+                          <Route path="returns-exchanges" element={<ReturnsExchangesPage />} />
+                          <Route path="help-center" element={<HelpCenterPage />} />
+
+                          <Route path="*" element={<NotFoundPage />} />
+                        </Route>
+                      </Routes>
+                    </Suspense>
+                  </FilterProvider>
+                </CartProvider>
+              </WishlistProvider>
+            </AuthProvider>
+          </BrowserRouter>
+        </ConfigProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
 

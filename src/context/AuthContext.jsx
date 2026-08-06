@@ -1,13 +1,16 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+/* eslint-disable react-refresh/only-export-components */
+import { createContext, useState, useEffect } from 'react';
 import { getItem, setItem, removeItem } from '../utils/storage';
 import { toast } from 'sonner';
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 const AUTH_USER_KEY = 'ecom_user_session';
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => getItem(AUTH_USER_KEY, null));
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [authModalMode, setAuthModalMode] = useState('login'); // 'login' | 'register'
 
   useEffect(() => {
     if (user) {
@@ -17,8 +20,16 @@ export const AuthProvider = ({ children }) => {
     }
   }, [user]);
 
+  const openAuthModal = (mode = 'login') => {
+    setAuthModalMode(mode);
+    setIsAuthModalOpen(true);
+  };
+
+  const closeAuthModal = () => {
+    setIsAuthModalOpen(false);
+  };
+
   const login = async (email, password) => {
-    // Mock login authentication
     if (!email || !password) {
       toast.error('Please fill in all credentials');
       return false;
@@ -33,6 +44,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     setUser(mockUser);
+    setIsAuthModalOpen(false);
     toast.success(`Welcome back, ${mockUser.name}!`);
     return true;
   };
@@ -52,6 +64,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     setUser(newUser);
+    setIsAuthModalOpen(false);
     toast.success('Account created successfully!');
     return true;
   };
@@ -66,6 +79,11 @@ export const AuthProvider = ({ children }) => {
       value={{
         user,
         isAuthenticated: !!user,
+        isAuthModalOpen,
+        authModalMode,
+        setAuthModalMode,
+        openAuthModal,
+        closeAuthModal,
         login,
         register,
         logout
@@ -74,12 +92,4 @@ export const AuthProvider = ({ children }) => {
       {children}
     </AuthContext.Provider>
   );
-};
-
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
 };

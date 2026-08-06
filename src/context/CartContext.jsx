@@ -1,8 +1,9 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+/* eslint-disable react-refresh/only-export-components */
+import { createContext, useState, useEffect } from 'react';
 import { getItem, setItem } from '../utils/storage';
 import { toast } from 'sonner';
 
-const CartContext = createContext();
+export const CartContext = createContext();
 
 const CART_STORAGE_KEY = 'ecom_cart_items';
 
@@ -129,10 +130,3 @@ export const CartProvider = ({ children }) => {
   );
 };
 
-export const useCart = () => {
-  const context = useContext(CartContext);
-  if (!context) {
-    throw new Error('useCart must be used within a CartProvider');
-  }
-  return context;
-};

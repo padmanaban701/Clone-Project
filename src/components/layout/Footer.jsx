@@ -1,8 +1,9 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Truck, RotateCcw, Headphones, Mail, Heart } from 'lucide-react';
+import { useFilter } from '../../hooks/useFilter';
 
 export const Footer = () => {
+  const { setSelectedCategory } = useFilter();
   return (
     <footer className="bg-slate-900 text-slate-300 pt-16 pb-8 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -91,30 +92,32 @@ export const Footer = () => {
           <div>
             <h5 className="text-xs font-bold text-white uppercase tracking-wider mb-3 sm:mb-4">Shop Categories</h5>
             <ul className="space-y-2 sm:space-y-2.5 text-xs text-slate-400">
-              <li><Link to="/shop?category=electronics" className="hover:text-indigo-400 transition-colors">Electronics & Audio</Link></li>
-              <li><Link to="/shop?category=apparel" className="hover:text-indigo-400 transition-colors">Apparel & Fashion</Link></li>
-              <li><Link to="/shop?category=accessories" className="hover:text-indigo-400 transition-colors">Watches & Accessories</Link></li>
-              <li><Link to="/shop?category=home" className="hover:text-indigo-400 transition-colors">Home & Living</Link></li>
+              <li><Link to="/shop?category=electronics" onClick={() => setSelectedCategory('electronics')} className="hover:text-indigo-400 transition-colors">Electronics & Audio</Link></li>
+              <li><Link to="/shop?category=fashion" onClick={() => setSelectedCategory('fashion')} className="hover:text-indigo-400 transition-colors">Fashion & Apparel</Link></li>
+              <li><Link to="/shop?category=mobiles" onClick={() => setSelectedCategory('mobiles')} className="hover:text-indigo-400 transition-colors">Mobiles & 5G</Link></li>
+              <li><Link to="/shop?category=appliances" onClick={() => setSelectedCategory('appliances')} className="hover:text-indigo-400 transition-colors">TVs & Appliances</Link></li>
+              <li><Link to="/shop?category=home" onClick={() => setSelectedCategory('home')} className="hover:text-indigo-400 transition-colors">Home & Furniture</Link></li>
+              <li><Link to="/shop?category=grocery" onClick={() => setSelectedCategory('grocery')} className="hover:text-indigo-400 transition-colors">Grocery & Essentials</Link></li>
             </ul>
           </div>
 
           <div>
             <h5 className="text-xs font-bold text-white uppercase tracking-wider mb-3 sm:mb-4">Customer Care</h5>
             <ul className="space-y-2 sm:space-y-2.5 text-xs text-slate-400">
-              <li><a href="#" className="hover:text-indigo-400 transition-colors">Order Tracking</a></li>
-              <li><a href="#" className="hover:text-indigo-400 transition-colors">Shipping & Delivery</a></li>
-              <li><a href="#" className="hover:text-indigo-400 transition-colors">Returns & Exchanges</a></li>
-              <li><a href="#" className="hover:text-indigo-400 transition-colors">FAQs & Help Center</a></li>
+              <li><Link to="/orders" className="hover:text-indigo-400 transition-colors">Order Tracking</Link></li>
+              <li><Link to="/shipping-delivery" className="hover:text-indigo-400 transition-colors">Shipping & Delivery</Link></li>
+              <li><Link to="/returns-exchanges" className="hover:text-indigo-400 transition-colors">Returns & Exchanges</Link></li>
+              <li><Link to="/help-center" className="hover:text-indigo-400 transition-colors">FAQs & Help Center</Link></li>
             </ul>
           </div>
 
           <div>
             <h5 className="text-xs font-bold text-white uppercase tracking-wider mb-3 sm:mb-4">Company</h5>
             <ul className="space-y-2 sm:space-y-2.5 text-xs text-slate-400">
-              <li><a href="#" className="hover:text-indigo-400 transition-colors">About VELOX</a></li>
-              <li><a href="#" className="hover:text-indigo-400 transition-colors">Sustainability Commitment</a></li>
-              <li><a href="#" className="hover:text-indigo-400 transition-colors">Careers & Culture</a></li>
-              <li><a href="#" className="hover:text-indigo-400 transition-colors">Privacy & Terms</a></li>
+              <li><Link to="/about" className="hover:text-indigo-400 transition-colors">About NEXUS</Link></li>
+              <li><Link to="/sustainability" className="hover:text-indigo-400 transition-colors">Sustainability Commitment</Link></li>
+              <li><Link to="/careers" className="hover:text-indigo-400 transition-colors">Careers & Culture</Link></li>
+              <li><Link to="/privacy-terms" className="hover:text-indigo-400 transition-colors">Privacy & Terms</Link></li>
             </ul>
           </div>
         </div>
@@ -122,7 +125,7 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-6 sm:pt-8 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-xs text-slate-500">
           <p className="flex items-center justify-center gap-1">
-            © {new Date().getFullYear()} VELOX E-Commerce. Built with <Heart className="w-3.5 h-3.5 text-red-500 fill-current inline" /> using React 19 & Vite.
+            © {new Date().getFullYear()} NEXUS E-Commerce. Built with <Heart className="w-3.5 h-3.5 text-red-500 fill-current inline" /> using React 19 & Vite.
           </p>
           <div className="flex items-center justify-center gap-4 text-slate-400 font-semibold text-[11px]">
             <span>Visa</span>

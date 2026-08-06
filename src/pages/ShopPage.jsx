@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { ProductGrid } from '../components/product/ProductGrid';
 import { ProductFilter } from '../components/product/ProductFilter';
 import { useProductsQuery } from '../hooks/useProductQueries';
 import { useFilter } from '../hooks/useFilter';
-import { SlidersHorizontal, Search, X } from 'lucide-react';
+import { SlidersHorizontal, X } from 'lucide-react';
 
 export const ShopPage = () => {
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
+  const [searchParams] = useSearchParams();
 
   const {
     searchQuery,
@@ -19,6 +21,17 @@ export const ShopPage = () => {
     resetFilters,
     hasActiveFilters
   } = useFilter();
+
+  useEffect(() => {
+    const categoryParam = searchParams.get('category');
+    const searchParam = searchParams.get('search');
+    if (categoryParam) {
+      setSelectedCategory(categoryParam);
+    }
+    if (searchParam) {
+      setSearchQuery(searchParam);
+    }
+  }, [searchParams, setSelectedCategory, setSearchQuery]);
 
   const { data: products = [], isLoading } = useProductsQuery({
     category: selectedCategory,
